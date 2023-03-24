@@ -5,16 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind.config.js"></script>
     <title>Calculator</title>
 </head>
 <body>
    <div class=" container mx-auto flex justify-center mt-10">
-      <div class=" w-[600px] border border-1 p-8  space-y-5">
-        <input type="text"id="Email" class="mt-1 w-full  h-[80px] p-3 border border-gray-500 bg-baby-powder text-sm text-gray-700 focus-within:border-penn-blue "/>
-        <p>Hi</p>
+      <div class=" w-[370px] border border-1 p-5  space-y-5">
+        <input type="text"id="textArea" class="mt-1 w-full  h-[100px] p-3  bg-baby-powder text-xl text-gray-700 focus-within:border-penn-blue "/>
+        <div class="flex flex-row space-x-2">
+            <div class="flex flex-col justify-between space-y-2">
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="clear()">C</button>
+                <button class="px-8 py-4 border border-1 rounded-full">√</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num7()">7</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num4()">4</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num1()">1</button>
+                <button class="px-8 py-4 border border-1 rounded-full">.</button>
+            </div>
+            <div class="flex flex-col justify-between space-y-2">
+                <button class="px-8 py-4 border border-1 rounded-full">(</button>
+                <button class="px-8 py-4 border border-1 rounded-full">%</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num8()">8</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num5()">5</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num2()">2</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num()">0</button>
+            </div>
+            <div class="flex flex-col justify-between space-y-2">
+                <button class="px-8 py-4 border border-1 rounded-full">)</button>
+                <button class="px-8 py-4 border border-1 rounded-full">^</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num9()">9</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num6()">6</button>
+                <button class="px-8 py-4 border border-1 rounded-full" onclick="num3()">3</button>
+                <button class="px-8 py-4 border border-1 rounded-full">D</button>
+            </div>
+            <div class="flex flex-col justify-between space-y-2">
+                <button class="px-8 py-4 border border-1 rounded-full">*</button>
+                <button class="px-8 py-4 border border-1 rounded-full">÷</button>
+                <button class="px-8 py-4 border border-1 rounded-full">-</button>
+                <button class="px-8 py-4 border border-1 rounded-full">+</button>
+                <button class="px-8 py-4 border border-1 rounded-full grow" onclick="solve()">=</button>
+            </div>
+        </div>
       </div>
    </div>
 </body>
