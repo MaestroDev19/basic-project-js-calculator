@@ -1,53 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
     <script defer src="main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="tailwind.config.js"></script>
     <title>Calculator</title>
-</head>
-<body>
-   <div class=" container mx-auto flex justify-center  items-center mt-10">
-      <div class=" w-[370px] border border-1 p-5  space-y-5">
-        <input type="text"id="textArea" class="mt-1 w-full  h-[100px] p-3  bg-baby-powder text-xl text-gray-700 focus-within:border-penn-blue "/>
+  </head>
+  <body>
+    <div class="container mx-auto flex justify-center items-center mt-10">
+      <div class="w-[370px] border border-1 p-5 space-y-5 rounded-lg shadow-sm">
+        <input
+          type="text"
+          id="textArea"
+          class="mt-1 w-full h-[100px] p-3 bg-baby-powder text-xl text-gray-700 focus-within:border-penn-blue"
+        />
         <div class="flex flex-row space-x-2">
-            <div class="flex flex-col justify-between space-y-2">
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="cleanUp()">C</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="root()">√</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('7')">7</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('4')">4</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('1')">1</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('.')">.</button>
-            </div>
-            <div class="flex flex-col justify-between space-y-2">
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="b_left()">(</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="mod()">%</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('8')">8</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('5')">5</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('2')">2</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('0')">0</button>
-            </div>
-            <div class="flex flex-col justify-between space-y-2">
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="b_right()">)</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="exp()">^</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('9')">9</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('6')">6</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="digits('3')">3</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="del()">D</button>
-            </div>
-            <div class="flex flex-col justify-between space-y-2">
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="mul()">*</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="div()">÷</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="sub()">-</button>
-                <button class="px-8 py-4 border border-1 rounded-full" onclick="add()">+</button>
-                <button class="px-8 py-4 border border-1 rounded-full grow" onclick="solve()">=</button>
-            </div>
+          <div class="flex flex-col justify-between space-y-2">
+            <button
+              class="px-8 py-4 border border-1 bg-orange-400 text-white shadow-sm rounded-full grow-0"
+              onclick="cleanUp()"
+            >
+              C
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-orange-200 opacity-50 text-orange-500 shadow-sm rounded-full"
+              onclick="root()"
+            >
+              √
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('7')"
+            >
+              7
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('4')"
+            >
+              4
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('1')"
+            >
+              1
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('.')"
+            >
+              .
+            </button>
+          </div>
+          <div class="flex flex-col justify-between space-y-2">
+            <button
+              class="px-8 py-4 border border-1 bg-orange-200 opacity-50 text-orange-500 shadow-sm rounded-full"
+              onclick="opps('(')"
+            >
+              (
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-orange-200 opacity-50 text-orange-500 shadow-sm rounded-full"
+              onclick="opps('%')"
+            >
+              %
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('8')"
+            >
+              8
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('5')"
+            >
+              5
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('2')"
+            >
+              2
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('0')"
+            >
+              0
+            </button>
+          </div>
+          <div class="flex flex-col justify-between space-y-2">
+            <button
+              class="px-8 py-4 border border-1 bg-orange-200 opacity-50 text-orange-500 shadow-sm rounded-full"
+              onclick="opps(')')"
+            >
+              )
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500 bg-orange-200 opacity-50 text-orange-500 shadow-sm rounded-full"
+              onclick="opps('**')"
+            >
+              ^
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('9')"
+            >
+              9
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="digits('6')"
+            >
+              6
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm shadow-sm text-gray-500"
+              onclick="digits('3')"
+            >
+              3
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full shadow-sm text-gray-500"
+              onclick="del()"
+            >
+              D
+            </button>
+          </div>
+          <div class="flex flex-col justify-between space-y-2">
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-purple-200 text-purple-700 shadow-sm"
+              onclick="opps('*')"
+            >
+              *
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-purple-200 text-purple-700 shadow-sm"
+              onclick="opps('/')"
+            >
+              /
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-purple-200 text-purple-700 shadow-sm"
+              onclick="opps('-')"
+            >
+              -
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full bg-purple-200 text-purple-700 shadow-sm"
+              onclick="opps('+')"
+            >
+              +
+            </button>
+            <button
+              class="px-8 py-4 border border-1 rounded-full grow bg-purple-700 text-white shadow-sm"
+              onclick="solve()"
+            >
+              =
+            </button>
+          </div>
         </div>
       </div>
-   </div>
-</body>
+    </div>
+  </body>
 </html>
